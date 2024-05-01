@@ -104,20 +104,20 @@ void loop() {
   if (detectPeak(g.gyro.y, gPrev[1], gDelta[1], gDeltaPrev[1], gThreshold) ) {
     sending = !sending;
     digitalWrite(13, sending);
-    if (sending) midi.send(0xB90 | CHANNEL, 63, 127);
-    else midi.send(0x90 | CHANNEL, 63, 0);
+    //if (sending) midi.send(0xB90 | CHANNEL, 63, 127);
+    //else midi.send(0x90 | CHANNEL, 63, 0);
   }
 
   if (detectPeak(g.gyro.x, gPrev[0], gDelta[0], gDeltaPrev[0], gThreshold) ) {
     xPeak = !xPeak;
-    if (zPeak) midi.send(0xB90 | CHANNEL+1, 64, 127);
-    else midi.send(0x90 | CHANNEL+1, 64, 0);
+    //if (zPeak) midi.send(0xB90 | CHANNEL+1, 64, 127);
+    //else midi.send(0x90 | CHANNEL+1, 64, 0);
   }
 
   if (detectPeak(g.gyro.z, gPrev[2], gDelta[2], gDeltaPrev[2], gThreshold) ) {
     zPeak = !zPeak;
-    if (zPeak) midi.send(0xB90 | CHANNEL+1, 65, 127);
-    else midi.send(0x90 | CHANNEL+1, 65, 0);
+    //if (zPeak) midi.send(0xB90 | CHANNEL+1, 65, 127);
+    //else midi.send(0x90 | CHANNEL+1, 65, 0);
   }
   
   if (isConnected && sending) {
